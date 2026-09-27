@@ -1,0 +1,33 @@
+#id1 {
+    color: blueviolet;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 800;
+    font-style: normal;
+    text-decoration: underline;
+    border: 2px red solid;
+    border-style: dotted;
+    margin: 2px;
+    padding: 2.2px;
+    padding-left: 8px;
+    background: linear-gradient(to left, skyblue, lightgreen);
+    /* background-position: 120vh;*/
+    margin-top: 0px;
+    margin: 0px;
+}
+
+.class1 {
+    color: blueviolet;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 800;
+    font-style: normal;
+    text-decoration: underline;
+    border: 2px red solid;
+    border-style: dotted;
+    margin: 2px;
+    padding: 2.2px;
+    padding-left: 8px;
+    background: linear-gradient(to left, skyblue, lightgreen);
+    margin-top: 0px;
+}

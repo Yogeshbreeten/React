@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="insert">
+    <div class="key">
+        Press a key
+    </div>
+</div>
+</body>
+<script>
+    // const insert=document.querySelector("insert");
+    // window.addEventListener('keydown',(e)=>{
+    //     insert.innerHTML=`key:{e.key} {e.keycode}`;
+    // })
+
+
+
+    //to make a promise
+    //1 to make a promise
+    const promiseone=new Promise(function(resolve,reject){
+        //do an async task
+        //DB calls,cryptography,network
+setTimeout(function(){
+    console.log("Async task is complete");
+    //for consumption we take
+    resolve();
+},1000)
+    });
+    //for consumption resolve has connection with then
+    promiseone.then(function(){
+        console.log("Promise consumed");
+    })
+    //in simpler version
+     new Promise(function(resolve,reject){
+        setTimeout(function(){
+            console.log("Async task 2");
+            resolve();
+        },1000)
+     }).then(function(){
+        console.log("Async is resolves");
+     })
+
+
+     //promise 3
+
+
+     const promisethree=new Promise(function(resolve,reject){
+        setTimeout(function(){
+resolve({username:"chai",email:"hello@gmail.com"})//passing a data
+        },1000)
+     })
+promisethree.then(function(data){
+console.log(data);
+}) //for data consumption 
+
+
+const promisefour=new Promise(function(resolve,reject){
+setTimeout(function(){
+    let error=true;
+    if(!error){
+        resolve({username:"email",email:"username@gmail.com"});
+    }
+    else{
+        reject('Error something went wrong');
+    }
+})
+},1000)
+promisefour.then((user)=>{
+console,log(user);
+return user.username
+}).then((username)=>{
+console.log(username);
+}).catch(function(error){
+    console.log(error);
+}).finally(()=>console.log('finally promise is fulfilled'));
+
+
+
+//promise5
+const promisefive=new Promise(function(resolve,reject){
+setTimeout(function(){
+    let error=false;
+    if(!error){
+        resolve({username:"google",email:"username@gmail.com"});
+    }
+    else{
+        reject('Error something went wrong');
+    }
+})
+},1000)
+// async function consumepromisefive(){
+// const response=await promisefive;
+// console.log(response);
+// }
+// consumepromisefive();
+///if error condition then
+async function consumepromisefive(){
+    try{
+        const response=await promisefive;
+        console.log(response);
+
+    }catch(error){
+console.log(error);
+    }
+}
+</script>
+</html>

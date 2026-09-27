@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            margin: 180px;
+            background-color: rgb(85, 3, 11);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:5px;
+        }
+        #container{
+            margin: 15px;
+            width:300px;
+            height: 350px;
+            border-radius: 10px;
+            padding: 15px;
+            border: 10px solid rgb(167, 8, 58);
+            
+        }
+        .input{
+            
+            width:100% ;
+            height:60px;
+            font-size:28px ;
+            
+        }
+        .buttons{
+            display: grid;
+            margin:20px;
+            grid-template-columns: repeat(4,1fr);
+            gap:10px;
+            border-radius: 12px;
+        }
+        .buttons:hover{
+            opacity: 0.8;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container" class="container">
+        <input type="text" id="input" class="input">
+        <div class="buttons">
+            <button class="clear">C</button>
+            <button class="operator">()</button>
+            <button class="operator">%</button>
+            <button class="operator">*</button>
+            <button class="operator">/</button>
+            <button class="operator">-</button>
+            <button class="operator">+</button>
+<button class="operator">=</button>
+<button class="num">7</button>
+<button class="num">8</button>
+<button class="num">9</button>
+<button class="num">4</button>
+<button class="num">5</button>
+<button class="num">6</button>
+<button class="num">1</button>
+<button class="num">2</button>
+<button class="num">3</button>
+<button class="num">0</button>
+<button class="num">.</button>
+        </div>
+    </div>
+</body>
+<script>
+const display=document.querySelector('input');
+const buttons=document.querySelectorAll('button');
+buttons.forEach(button=>{
+button.addEventListener('click',()=>{
+const value=button.textContent;
+if(value==="C"){
+    display.value=" ";
+}else if(value==="=")
+{
+    try{
+        display.value=eval(display.value);
+    }catch{
+        display.value="error";
+    }
+}else{
+    display.value+=value;
+}
+})
+})
+</script>
+</html>

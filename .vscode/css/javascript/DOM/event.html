@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <h1>DEV KO photo</h1>
+ <ul id="images">
+    <li>
+        <img width="150px" id="photoshop" src="./Screenshot 2026-02-18 084426.png" >   </li>
+         <li><img width="150px" id="photos" src="./Screenshot 2026-02-18 084426.png" >   </li>
+         <li><img width="150px" id="photo" src="./Screenshot 2026-02-18 084426.png" >   </li>
+ </ul>  
+</body>
+<script>
+const image=document.getElementById('photoshop');
+image.onclick=function () {
+    alert("Ganesh ji");
+}
+//document.getElementById('photoshop').addEventListener('click',function(e){
+    //console.log(e);
+//},false)
+document.getElementById('#images').addEventListener('click',function(e){
+    console.log(e.target.tagName);
+    if(e.target.tagName==='IMG'){
+        console.log(e.target.id);
+    let removeIT =e.target.parentNode;
+    remove.remove();
+    }
+})
+</script>
+</html>

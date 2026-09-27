@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz App</h1>
+        <p id="question">Question</p>
+        <div class="answers"></div>
+         <p id="result">
+         </p>
+         <button id="neBtn">Next</button>
+         <p id="score">Score:</p>
+    </div>
+</body>
+<script>
+    const questions=[{
+        question:"What is your name ?",
+        answers:[
+            "Albert Singh Mahotoo ",
+            "Breeten Khadka",
+            "Chandaramani Yadav",
+            "Dambar Raj Karki"
+        ],
+        correct:"Chandaramani Yadav"
+    },{
+        question:"What is your name ?",
+        answers:[
+            "Albert Singh Mahotoo ",
+            "Breeten Khadka",
+            "Chandaramani Yadav",
+            "Dambar Raj Karki"
+        ],
+        correct:"Dambar Raj Karki"
+    },
+{
+        question:"What is your name ?",
+        answers:[
+            "Albert Singh Mahotoo ",
+            "Breeten Khadka",
+            "Chandaramani Yadav",
+            "Dambar Raj Karki"
+        ],
+        correct:"Breeten Khadka"
+    },
+    {
+        question:"What is your name ?",
+        answers:[
+            "Albert Singh Mahotoo ",
+            "Breeten Khadka",
+            "Chandaramani Yadav",
+            "Dambar Raj Karki"
+        ],
+        correct:"Albert Singh Mahotoo"
+    },
+    ]
+    let currentQuestion=0;
+    let score=0;
+
+    const questionElement=document.getElementById('question');
+    const answerElement=document.getElementById('answers');
+    const resultElement=document.getElementById('result');
+    const nextButton=document.getElementById('neBtn');
+    const scoreElement=document.getElementById('score');
+    function showQuestion(){
+        const current=questions[currentQuestion];
+        questionElement.textContent=current.question;
+        answerElement.textContent="";
+        resultElement.textContent="";
+        current.answers.forEach(answer=>{
+            const button=document.createElement('button');
+            button.textContent=answer;
+            button.classList.add('answer');
+            button.addEventListener('click',()=>{
+                if(answer===current.correct)
+            {
+                resultElement.textContent="correct";
+                score++;
+                scoreElement.textContent='Score${score}';
+            }
+            else{
+                resultElement.textContent='wrong';
+            }
+            });
+            answerElement.appendChild(button);
+                });
+    }
+    nextButton.addEventListener('click',()=>{
+        currentQuestion++;
+        if(currentQuestion<questions.length)
+    {
+        showQuestion();
+    }
+    else{
+        questionElement.textContent="quiz sakiyoo";
+        answerElement.textContent="";
+        resultElement.textContent=`${score}`;
+        nextButton.style.display="none";
+    }
+    });
+    showQuestion();
+</script>
+</html>
+
+
+
+
+

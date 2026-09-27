@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="math">Math</label>
+    <input type="number" id="math" placeholder="Enter math marks" >
+    <label for="science">science</label>
+    <input type="number" id="science" placeholder="Enter science marks" >
+    <label for="computer">Cs</label>
+    <input type="number" id="Cs" placeholder="Enter cs marks" >
+    <button >Calculate</button>
+    <p id="result"> Result is:</p>
+</body>
+<script>
+const math=document.querySelector('#math');
+const science=document.querySelector('#science');
+const cs=document.querySelector('#Cs');
+const button=document.querySelector('button');
+const result=document.querySelector('#result');
+button.addEventListener('click',()=>{
+    const m=Number(math.value);
+    const s=Number(science.value);
+    const c=Number(cs.value);
+    const total=m+s+c;
+    const average=total/3;
+    let grade;
+    if(average>=80)
+{
+    grade = "A";
+}else if(average>=70)
+{
+    grade = "B";
+}else if(average>=60)
+{
+    grade = "C";
+}else if(average>=50)
+{
+    grade = "D";
+}
+else{
+    grade = "NG";
+}
+result.textContent=`Total:${total} and Average:${average} and Grade:${grade}`;
+})
+</script>
+</html>`

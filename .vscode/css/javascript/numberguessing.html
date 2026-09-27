@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Guess the number</h1>
+    <input type="number" id="guessinput">
+    <button id="guessbutton">Submit</button>
+    <p id="message">Message:</p>
+    <p id="attempt">Attempt:</p>
+    </div>
+</body>
+<script>
+    const random=Math.floor(Math.random()*100)+1;
+    const guessInput=document.getElementById('guessinput');
+const guessButton=document.getElementById('guessbutton');
+const message=document.getElementById('message');
+const attemptsText=document.getElementById('attempt');
+let attempts=0;
+guessButton.addEventListener('click',()=>{
+    const guess=Number(guessInput.value);
+    attempts++;
+    if(guess<1||guess>100)
+{
+    message.textContent="enter value between 1 to 100";
+}
+else if(guess>random)
+{
+    message.textContent=`${guess} is higher`
+}
+else if(guess<random)
+{
+    message.textContent=`${guess} is lower` 
+}
+else{
+     message.textContent=`${guess} is matches`
+} 
+attemptsText.textContent=`${attempts}`;
+})
+
+    
+  
+</script>
+</html>
